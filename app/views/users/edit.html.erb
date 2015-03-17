@@ -1,0 +1,5 @@
+<h1>Edit user</h1>
+<%= form_for @user do |f| %>
+  <%= render 'shared/errors', object: @user %>
+  <%= render 'users/form', f: f %>
+<% end %>

@@ -5,3 +5,11 @@ Add menu
 Add list
 Add search
 
+Create Migration
+Create Model
+Add Routes
+Create Controller
+  user
+    register admin only
+Create templates
+Validation
