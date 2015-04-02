@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:username, :role))
+    @user = User.new(user_params)
 
     if @user.save
       flash[:notice] = "Welcome to Fluorite"
@@ -22,13 +22,17 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(params.require(:user).permit(:username, :role))
+    if @user.update(user_params)
       flash[:notice] = "Your profile now reflects your reality"
       redirect_to root_path
     end
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:username, :password, :password_confirmation, :role)
+  end
 
     def set_user
       @user = User.find(params[:id])
