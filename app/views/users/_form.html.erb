@@ -24,4 +24,10 @@
   <div class="col-sm-3">
     <%= f.select :role, options_for_select(%w[Administrator Supervisor Dispatcher]), {}, class: 'form-control' %>
   </div>
-<% f.submit "Register User", class: 'btn btn-success' %>
+</div>
+
+<div class='form-group'>
+  <div class='col-sm-offset-2 col-sm-4'>
+    <%= f.submit "Register User", class: 'btn btn-success' %>
+  </div>
+</div>
