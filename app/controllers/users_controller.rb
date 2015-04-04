@@ -15,12 +15,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  def show
-  end
-
   def update
     if @user.update(user_params)
       flash[:notice] = "Your profile now reflects your reality"

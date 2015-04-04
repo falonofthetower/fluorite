@@ -1,0 +1,17 @@
+<% content_for(:title, 'All the pretty links') %>
+<%= link_to 'Spawn new link', new_link_path %>
+<div class="row">
+  <div class='span0 well'>
+    <table class="table table-condensed">
+      <% @links.each do |link| %>
+        <tr>
+          <td>
+            <%= link_to 'edit', edit_link_path(link) %>
+           | <%= link_to 'delete', link_path(link), method: :delete, data: { confirm: "YOU POSITIVE ON THAT MOVE ACE???" } %>
+           | <%= render 'shared/show_link', link: link %>
+          </td>
+        </tr>
+     <% end %>
+    </table>
+  </div>
+</div>

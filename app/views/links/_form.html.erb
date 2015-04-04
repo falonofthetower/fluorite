@@ -1,0 +1,31 @@
+<div class='form-group'>
+<%= f.label :name, nil, class: 'col-sm-2 control-label' %>
+<div class="col-sm-3">
+  <%= f.text_field :name, class: 'form-control' %>
+</div>
+</div>
+
+<div class='form-group'>
+  <%= f.label :url, nil, class: 'col-sm-2 control-label' %>
+  <div class="col-sm-3">
+    <%= f.text_field :url, class: 'form-control' %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class='col-sm-offset-2 col-sm-4'>
+    <%= f.label "Add to which Menus" %>
+    <div class="well">
+      <%= f.collection_check_boxes :menu_ids, Menu.all, :id, :name do |cb| %>
+        <% cb.label(class: "checkbox inline") {cb.check_box(class: "checkbox") + cb.text} %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class='form-group'>
+  <div class='col-sm-offset-2 col-sm-4'>
+    <%= f.submit class: 'btn btn-success' %>
+  </div>
+</div>
+

@@ -1,5 +1,6 @@
-<a class="navbar-brand" href="#">
-  <img alt="Brand" src="/assets/DoublePLogo_32px.png">
+<div => 
+<a class="navbar-brand" href="/">
+<img alt="Brand" src="/assets/DoublePLogo_32px.png">
 </a>
 <form class="navbar-form navbar-nav navbar-right" role="search">
   <div class="form-group">
@@ -7,10 +8,22 @@
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
+<ul class="nav navbar-nav navbar-left">
+  <% Menu.find_each do |menu| %>
+    <li><%= link_to menu.name, menu_path(menu) %></li>
+  <% end%>
+</ul>
 <ul class="nav navbar-nav navbar-right">
   <% if logged_in? %>
+    <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Admin <span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+      <li><%= link_to 'Links', links_path %></li>
+      <li><%= link_to 'Menus', menus_path %></li>
+    </ul>
     <li><%= link_to 'Logout', logout_path %></li>
   <% else %>
+    <li><%= link_to 'Register', register_path %></li>
     <li><%= link_to 'Login', login_path %></li>
   <% end %>
 </ul>
