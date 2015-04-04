@@ -12,6 +12,9 @@ class UsersController < ApplicationController
       flash[:notice] = "Welcome to Fluorite"
       session[:user_id] = @user.id
       redirect_to root_path
+    else
+      flash[:notice] = "Bummer--you failed!!!"
+      render :new
     end
   end
 

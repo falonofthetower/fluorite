@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:notice] = "Welcome, #{user.username} your kingdom awaits"
-      redirect_to menu_path Menu.first
+      redirect_to root_path
     else
       flash.now[:error] = "Invalid login!"
       render :new
