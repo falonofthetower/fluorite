@@ -1,0 +1,5 @@
+<% content_for(:title, 'Make the link better!') %>
+<%= form_for @link, :html => {:class => "form-horizontal"} do |f| %>
+  <%= render 'shared/errors', object: @link %>
+  <%= render 'links/form', f: f %>
+<% end %>

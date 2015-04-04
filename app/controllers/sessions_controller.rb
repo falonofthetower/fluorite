@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      flash[:notice] = "You have arrived!"
-      redirect_to user_path user.id
+      flash[:notice] = "Welcome, #{user.username} your kingdom awaits"
+      redirect_to menu_path Menu.first
     else
       flash.now[:error] = "Invalid login!"
       render :new

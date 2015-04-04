@@ -1,0 +1,13 @@
+<% content_for(:title, 'Change up the menu') %>
+<h4>Warning! The template itself must be changed to accomodate menu changes!</h4>
+
+<%= form_for @menu do |f| %>
+  <%= render 'shared/errors', object: @menu %>
+  <%= render 'form', f: f %>
+
+  <div class='form-group'>
+    <div class='col-sm-offset-2 col-sm-4'>
+      <%= f.submit "Edit Menu", class: 'btn btn-success' %>
+    </div>
+  </div>
+<% end %>

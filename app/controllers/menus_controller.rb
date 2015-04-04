@@ -1,4 +1,10 @@
 class MenusController < ApplicationController
+  before_action :set_menu, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, except: [:index, :show]
+
+  def index
+    @menu = Menu.all
+  end
 
   def new
     @menu = Menu.new
@@ -16,12 +22,34 @@ class MenusController < ApplicationController
   end
 
   def show
-    @menu = Menu.find_by name: params[:name]
+  end
+
+  def edit
+  end
+
+  def update
+    if @menu.update(menu_params)
+      flash[:notice] = "Your ill-advised change has been made"
+      redirect_to menus_path
+    else
+      flash.now[:error] = "Whew that stupid thing you tried--it failed!"
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @menu.destroy
+
+    redirect_to menus_path
   end
 
   private
 
   def menu_params
     params.require(:menu).permit(:name)
+  end
+
+  def set_menu
+    @menu = Menu.find_by_slug!(params[:id])
   end
 end

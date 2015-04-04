@@ -1,5 +1,5 @@
+<% content_for(:title, 'Register User') %>
 <%= form_for @user, :html => {:class => "form-horizontal"} do |f| %>
-<h1>Register New User</h1>
   <%= render 'shared/errors', object: @user %>
   <%= render 'users/form', f: f %>
 <% end %>

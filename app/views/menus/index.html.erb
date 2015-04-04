@@ -1,0 +1,16 @@
+<% content_for(:title, 'The very dope menu list') %>
+<%= link_to 'Add a menu', new_menu_path %>
+<div class="row">
+  <div class='span0 well'>
+    <table class="table table-condensed">
+      <% @menu.each do |menu| %>
+        <tr>
+          <td>
+            <%= link_to 'delete', menu_path(menu), method: :delete, data: { confirm: "YOU POSITIVE ON THAT MOVE ACE???" } %>
+            | <%= render 'show', menu: menu %>
+          </td>
+        </tr>
+       <% end %>
+    </table>
+  </div>
+</div>

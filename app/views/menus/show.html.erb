@@ -1,0 +1,6 @@
+<% content_for(:title, @menu.name) %>
+<div class="well col-sm-4">
+  <% @menu.links.each do |link| %>
+    <li><%= render 'shared/show_link', link: link %></li>
+  <% end %>
+</div>
