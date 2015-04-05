@@ -4,7 +4,7 @@ class Menu < ActiveRecord::Base
   has_many :menu_links
   has_many :links, through: :menu_links
 
-  validates :name, presence: true, length: { minimum: 5 }
+  validates :name, presence: true
 
   sluggable_column :name
 end
